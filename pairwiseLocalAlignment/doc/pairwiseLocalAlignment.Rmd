@@ -1,0 +1,36 @@
+---
+title: "Pairwise Local Alignment of nucleotide sequences"
+author: "Alessandro Gennari"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Pairwise Local Alignment of nucleotide sequences}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(stringr)
+library(pairwiseLocalAlignment)
+```
+
+## Introduction
+In the comparison of two nucleotide sequences is fundamental the research of overlapping patterns. Smith-Waterman algorithm allow to perform pairwise loca alignment of two sequences in order to find patterns in common.
+
+## Example
+
+Performing Smith-Waterman algorithm means overlapping each nucleotide of the first sequence with each nucleotide of the second sequence and computing a score for each combination. All the scores are collected in aa matrix which allow to find the best local alignment with a 'trace back' procedure.
+All those steps are performed by the smith_waterman function, which return a list of two elements collecting the aligned sub-sequences. 
+This function require 3 numerical parameters which defines the cost of a match, mismatch or the insertion of a gap between nucleotides, and finally the two sequences
+
+```{r}
+seq1 <- 'CCTATACCTAATTTTCGGCGCATGAGCCGGAATGGTGGGTACCGCTCTAAGCCTCCTCATTC'
+seq2 <- 'CATGAGCTGGAATAGTAGGTACCGCCCTAAGCCTCCTAATTCGAGCAGAGCTAGGCCAACCC'
+
+smith_waterman(10, -10, -3, seq1, seq2)
+```

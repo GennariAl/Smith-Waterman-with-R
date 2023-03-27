@@ -1,0 +1,16 @@
+Package: pairwiseLocalAlignment
+Title: Pairwise Local Alignment of nucleotide sequences
+Version: 1.0.9
+Authors@R: 
+    person("Alessandro", "Gennari", , "alessandro.gennari@mail.polimi.it", 
+    role = c("aut", "cre"))
+Description: This package provides a function to perform pairwise local alignment of nucletide sequences implementing the Smith-Waterman algorithm. The function reads 3 numerical parameters which defines the cost of a match, mismatch or the insertion of a gap between nucleotides of two sequences aligned. Then it perform the Smith-Waterman algorithm for Pairwise Local Alignment of sequences and return an list collecting the two aligned sub-sequences.
+License: GPL-2
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: R(>= 4.2)
+Imports: stringr, testthat
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+biocViews: Bioinformatics, HighThroughputSequencing
